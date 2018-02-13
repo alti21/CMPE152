@@ -49,6 +49,8 @@ DEPENDS_UTILITY = depends
 RAW_DEPENDENCY_FILE = raw_dependencies.txt
 DEPENDENCY_FILE = makefile_dependencies.txt
 
+PFLAGS =
+
 all: $(COMPILER)
 
 clean:
