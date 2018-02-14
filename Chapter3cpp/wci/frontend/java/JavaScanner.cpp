@@ -73,35 +73,23 @@ void JavaScanner::skip_white_space() throw (string)
 {
     char current_ch = current_char();
 
-    while (isspace(current_ch) || (current_ch == '/')) {
+    while (isspace(current_ch) || (current_ch == '{')) {
 
         // Start of a comment?
-        if (current_ch == '/' && next_char() == '*')
-        {            			
-			current_ch = next_char();  //consume slash character
-			do
-			{
-				current_ch = next_char();  // consume comment characters
-			} while ((current_ch != '*' || next_char() != '/') &&
-					 (current_ch != Source::END_OF_FILE));	
-			if(current_ch == '*' && next_char() == '/')
-			{
-				current_ch = next_char();
-				current_ch = next_char();  //Consume "*/"
-			}
+        if (current_ch == '{')
+        {
+            do
+            {
+                current_ch = next_char();  // consume comment characters
+            } while ((current_ch != '}') &&
+                     (current_ch != Source::END_OF_FILE));
+
+            // Found closing '}'?
+            if (current_ch == '}')
+            {
+                current_ch = next_char();  // consume the '}'
+            }
         }
-		else if (current_ch == '/' && next_char() == '/')
-		{
-			current_ch = next_char();
-			do
-			{
-				current_ch = next_char();
-			} while (current_ch != Source::END_OF_LINE)
-		}
-		else if (current_ch == '/' && (next_char != '*' || next_char != '/'))
-		{
-			break;
-		}
 
         // Not a comment.
         else current_ch = next_char();  // consume whitespace character

@@ -5,7 +5,7 @@
 # For instructional purposes only.  No warranties.
 #
 COMPILER = Chapter3cpp
-SRCS =  Pascal.cpp \
+SRCS =  Java.cpp \
         wci/Globals.cpp \
         wci/backend/Backend.cpp \
         wci/backend/BackendFactory.cpp \
@@ -16,16 +16,16 @@ SRCS =  Pascal.cpp \
         wci/frontend/Scanner.cpp \
         wci/frontend/Source.cpp \
         wci/frontend/Token.cpp \
-        wci/frontend/pascal/PascalError.cpp \
-        wci/frontend/pascal/PascalErrorHandler.cpp \
-        wci/frontend/pascal/PascalParserTD.cpp \
-        wci/frontend/pascal/PascalScanner.cpp \
-        wci/frontend/pascal/PascalToken.cpp \
-        wci/frontend/pascal/tokens/PascalErrorToken.cpp \
-        wci/frontend/pascal/tokens/PascalNumberToken.cpp \
-        wci/frontend/pascal/tokens/PascalSpecialSymbolToken.cpp \
-        wci/frontend/pascal/tokens/PascalStringToken.cpp \
-        wci/frontend/pascal/tokens/PascalWordToken.cpp \
+        wci/frontend/java/JavaError.cpp \
+        wci/frontend/java/JavaErrorHandler.cpp \
+        wci/frontend/java/JavaParserTD.cpp \
+        wci/frontend/java/JavaScanner.cpp \
+        wci/frontend/java/JavaToken.cpp \
+        wci/frontend/java/tokens/JavaErrorToken.cpp \
+        wci/frontend/java/tokens/JavaNumberToken.cpp \
+        wci/frontend/java/tokens/JavaSpecialSymbolToken.cpp \
+        wci/frontend/java/tokens/JavaStringToken.cpp \
+        wci/frontend/java/tokens/JavaWordToken.cpp \
         wci/message/Message.cpp \
         wci/message/MessageHandler.cpp
         
@@ -35,7 +35,7 @@ CC = g++
 # Replace with the path on your machine to the directory
 # where you installed the Boost include files.
 # See http://www.boost.org
-BOOST_INCLUDE_DIR = C:\Boost\boost_1_66_0
+BOOST_INCLUDE_DIR = /usr/local/include/boost
 
 CFLAGS = -std=c++0x -O0 -g3 -Wall -I$(BOOST_INCLUDE_DIR)
 
@@ -59,13 +59,13 @@ clean:
 $(COMPILER) : $(OBJS)
 	$(CC) -o $(COMPILER) $(OBJS)
 
-# Interpret a Pascal .pas program.
+# Interpret a Java .pas program.
 # Example: make interpret src=hello.pas
 # runs the hello.pas program using the interpreter.
 interpret: $(COMPILER) $(src)
 	./$(COMPILER) execute $(PFLAGS) $(src)
 
-# Compile a Pascal .pas program.
+# Compile a Java .pas program.
 # Example: make compile src=hello.pas
 # compiles the hello.pas program using the compiler.
 compile: $(COMPILER)
