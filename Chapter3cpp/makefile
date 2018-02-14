@@ -35,7 +35,7 @@ CC = g++
 # Replace with the path on your machine to the directory
 # where you installed the Boost include files.
 # See http://www.boost.org
-BOOST_INCLUDE_DIR = /usr/local/include/boost
+BOOST_INCLUDE_DIR = C:\Boost\boost_1_66_0
 
 CFLAGS = -std=c++0x -O0 -g3 -Wall -I$(BOOST_INCLUDE_DIR)
 
