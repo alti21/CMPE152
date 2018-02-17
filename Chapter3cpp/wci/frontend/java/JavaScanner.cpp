@@ -9,8 +9,8 @@
 #include <iostream>
 #include "JavaScanner.h"
 #include "JavaToken.h"
-#include "JavaError.h"
 #include "../Source.h"
+#include "JavaError.h"
 #include "tokens/JavaWordToken.h"
 #include "tokens/JavaNumberToken.h"
 #include "tokens/JavaStringToken.h"
@@ -51,7 +51,7 @@ Token *JavaScanner::extract_token() throw (string)
     {
         token = new JavaNumberToken(source);
     }
-    else if (current_ch == '\'')
+    else if (current_ch == '"') //(current_ch == '\'') EDITED HERE
     {
         token = new JavaStringToken(source);
     }
