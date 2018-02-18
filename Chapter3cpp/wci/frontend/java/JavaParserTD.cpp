@@ -13,8 +13,8 @@
 #include "../Source.h"
 #include "../Token.h"
 #include "JavaToken.h"
-#include "JavaError.h"
 #include "../../message/Message.h"
+#include "JavaError.h"
 
 namespace wci { namespace frontend { namespace java {
 
@@ -56,6 +56,14 @@ void JavaParserTD::parse() throw (string)
             case PT_STRING:
             {
                 type_str = "STRING";
+                value_str = cast(value, string);
+                break;
+            }
+
+            //ADDED HERE (V6)
+            case PT_CHAR:
+            {
+                type_str = "CHAR";
                 value_str = cast(value, string);
                 break;
             }

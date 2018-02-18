@@ -27,20 +27,25 @@ enum class JavaTokenType
 {
     // Reserved words.
     AND, ARRAY, BEGIN, CASE, CONST, DIV, DO, DOWNTO, ELSE, END,
-    FILE, FOR, FUNCTION, GOTO, IF, IN, LABEL, MOD, NIL, NOT,
+    FILE, FOR, FUNCTION, GOTO, IF, IN, LABEL, MOD, NIL, /*NOT,*/
     OF, OR, PACKED, PROCEDURE, PROGRAM, RECORD, REPEAT, SET,
     THEN, TO, TYPE, UNTIL, VAR, WHILE, WITH,
 
     // Special symbols.
     PLUS, MINUS, STAR, SLASH, COLON_EQUALS,
-    DOT, COMMA, SEMICOLON, COLON, QUOTE,
+    DOT, COMMA, SEMICOLON, COLON, /*QUOTE,*/ //COMMENTED OUT (V6)
     EQUALS, NOT_EQUALS, LESS_THAN, LESS_EQUALS,
     GREATER_EQUALS, GREATER_THAN, LEFT_PAREN, RIGHT_PAREN,
     LEFT_BRACKET, RIGHT_BRACKET, LEFT_BRACE, RIGHT_BRACE,
     UP_ARROW, DOT_DOT,
 
+	//ADDED HERE
+	QUESTION_MARK,
+
     IDENTIFIER, INTEGER, REAL, STRING,
     ERROR, END_OF_FILE,
+	//ADDED HERE (V6)
+	CHAR,
 };
 
 constexpr JavaTokenType PT_AND = JavaTokenType::AND;
@@ -64,7 +69,7 @@ constexpr JavaTokenType PT_IN = JavaTokenType::IN;
 constexpr JavaTokenType PT_LABEL = JavaTokenType::LABEL;
 constexpr JavaTokenType PT_MOD = JavaTokenType::MOD;
 constexpr JavaTokenType PT_NIL = JavaTokenType::NIL;
-constexpr JavaTokenType PT_NOT = JavaTokenType::NOT;
+// constexpr JavaTokenType PT_NOT = JavaTokenType::NOT; TOOK OUT HERE
 constexpr JavaTokenType PT_OF = JavaTokenType::OF;
 constexpr JavaTokenType PT_OR = JavaTokenType::OR;
 constexpr JavaTokenType PT_PACKED = JavaTokenType::PACKED;
@@ -92,7 +97,7 @@ constexpr JavaTokenType PT_DOT = JavaTokenType::DOT;
 constexpr JavaTokenType PT_COMMA = JavaTokenType::COMMA;
 constexpr JavaTokenType PT_SEMICOLON = JavaTokenType::SEMICOLON;
 constexpr JavaTokenType PT_COLON = JavaTokenType::COLON;
-constexpr JavaTokenType PT_QUOTE = JavaTokenType::QUOTE;
+//constexpr JavaTokenType PT_QUOTE = JavaTokenType::QUOTE; //COMMENTED OUT (V6)
 constexpr JavaTokenType PT_EQUALS = JavaTokenType::EQUALS;
 constexpr JavaTokenType PT_NOT_EQUALS = JavaTokenType::NOT_EQUALS;
 
@@ -108,6 +113,8 @@ constexpr JavaTokenType PT_LEFT_BRACE = JavaTokenType::LEFT_BRACE;
 constexpr JavaTokenType PT_RIGHT_BRACE = JavaTokenType::RIGHT_BRACE;
 constexpr JavaTokenType PT_UP_ARROW = JavaTokenType::UP_ARROW;
 constexpr JavaTokenType PT_DOT_DOT = JavaTokenType::DOT_DOT;
+//ADDED HERE
+constexpr JavaTokenType PT_QUESTION_MARK = JavaTokenType::QUESTION_MARK;
 
 constexpr JavaTokenType PT_IDENTIFIER = JavaTokenType::IDENTIFIER;
 constexpr JavaTokenType PT_INTEGER = JavaTokenType::INTEGER;
@@ -115,6 +122,8 @@ constexpr JavaTokenType PT_REAL = JavaTokenType::REAL;
 constexpr JavaTokenType PT_STRING = JavaTokenType::STRING;
 constexpr JavaTokenType PT_ERROR = JavaTokenType::ERROR;
 constexpr JavaTokenType PT_END_OF_FILE = JavaTokenType::END_OF_FILE;
+//ADDED HERE (V6)
+constexpr JavaTokenType PT_CHAR = JavaTokenType::CHAR;
 
 class JavaToken : public Token
 {

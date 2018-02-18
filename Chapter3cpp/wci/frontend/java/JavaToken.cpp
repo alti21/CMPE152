@@ -29,7 +29,7 @@ void JavaToken::initialize()
     {
         "AND", "ARRAY", "BEGIN", "CASE", "CONST", "DIV", "DO", "DOWNTO",
         "ELSE", "END", "FILE", "FOR", "FUNCTION", "GOTO", "IF", "IN",
-        "LABEL", "MOD", "NIL", "NOT", "OF", "OR", "PACKED", "PROCEDURE",
+        "LABEL", "MOD", "NIL", /*"NOT",*/ "OF", "OR", "PACKED", "PROCEDURE",
         "PROGRAM", "RECORD", "REPEAT", "SET", "THEN", "TO", "TYPE",
         "UNTIL", "VAR", "WHILE", "WITH"
     };
@@ -57,7 +57,7 @@ void JavaToken::initialize()
         JavaTokenType::LABEL,
         JavaTokenType::MOD,
         JavaTokenType::NIL,
-        JavaTokenType::NOT,
+        //		JavaTokenType::NOT,
         JavaTokenType::OF,
         JavaTokenType::OR,
         JavaTokenType::PACKED,
@@ -84,8 +84,10 @@ void JavaToken::initialize()
 
     vector<string> ss_strings =
     {
-        "+", "-", "*", "/", ":=", ".", ",", ";", ":", "'", "=", "<>",
-        "<", "<=", ">=", ">", "(", ")", "[", "]", "{", "}",  "^", ".."
+        "+", "-", "*", "/", ":=", ".", ",", ";", ":", /*"'",*/ "=", "<>", //COMMENTED OUT (V6)
+        "<", "<=", ">=", ">", "(", ")", "[", "]", "{", "}",  "^", "..",
+		//ADDED HERE
+		"?"
     };
 
     vector<JavaTokenType> ss_keys =
@@ -99,7 +101,7 @@ void JavaToken::initialize()
         JavaTokenType::COMMA,
         JavaTokenType::SEMICOLON,
         JavaTokenType::COLON,
-        JavaTokenType::QUOTE,
+        // JavaTokenType::QUOTE, //COMMENTED OUT (V6)
         JavaTokenType::EQUALS,
         JavaTokenType::NOT_EQUALS,
 
@@ -114,7 +116,9 @@ void JavaToken::initialize()
         JavaTokenType::LEFT_BRACE,
         JavaTokenType::RIGHT_BRACE,
         JavaTokenType::UP_ARROW,
-        JavaTokenType::DOT_DOT
+        JavaTokenType::DOT_DOT,
+		//ADDED HERE
+		JavaTokenType::QUESTION_MARK
     };
 
     for (int i = 0; i < ss_strings.size(); i++)
@@ -125,11 +129,13 @@ void JavaToken::initialize()
     vector<string> ss_names =
     {
         "PLUS", "MINUS", "STAR", "SLASH", "COLON_EQUALS", "DOT", "COMMA",
-        "SEMICOLON", "COLON", "QUOTE", "EQUALS", "NOT_EQUALS",
+        "SEMICOLON", "COLON", /*"QUOTE",*/ "EQUALS", "NOT_EQUALS", //COMMENTED OUT (V6)
 
         "LESS_THAN", "LESS_EQUALS", "GREATER_EQUALS", "GREATER_THAN",
         "LEFT_PAREN", "RIGHT_PAREN", "LEFT_BRACKET", "RIGHT_BRACKET",
-        "LEFT_BRACE", "RIGHT_BRACE", "UP_ARROW", "DOT_DOT"
+        "LEFT_BRACE", "RIGHT_BRACE", "UP_ARROW", "DOT_DOT",
+		//ADDED HERE
+		"QUESTION_MARK"
     };
 
     for (int i = 0; i < ss_names.size(); i++)

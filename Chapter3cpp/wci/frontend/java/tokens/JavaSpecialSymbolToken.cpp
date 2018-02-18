@@ -8,6 +8,7 @@
  */
 #include <string>
 #include "JavaSpecialSymbolToken.h"
+
 #include "../JavaError.h"
 
 namespace wci { namespace frontend { namespace java { namespace tokens {
@@ -33,8 +34,10 @@ void JavaSpecialSymbolToken::extract() throw (string)
     {
         // Single-character special symbols.
         case '+':  case '-':  case '*':  case '/':  case ',':
-        case ';':  case '\'': case '=':  case '(':  case ')':
+        case ';':  /*case '\'':*/ case '=':  case '(':  case ')': //COMMENTED OUT (V6)
         case '[':  case ']':  case '{':  case '}':  case '^':
+        	//ADDED HERE
+        case '?':
         {
             next_char();  // consume character
             break;
