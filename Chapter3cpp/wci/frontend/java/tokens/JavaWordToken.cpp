@@ -41,13 +41,12 @@ void JavaWordToken::extract() throw (string)
     }
 
     // Is it a reserved word or an identifier?
-    string upper_case = to_upper(text);
-    if (JavaToken::RESERVED_WORDS.find(upper_case)
+    if (JavaToken::RESERVED_WORDS.find(text)
             != JavaToken::RESERVED_WORDS.end())
     {
         // Reserved word.
-        type = (TokenType) JavaToken::RESERVED_WORDS[upper_case];
-        value = upper_case;
+        type = (TokenType) JavaToken::RESERVED_WORDS[text];
+        value = text;
     }
     else
     {
