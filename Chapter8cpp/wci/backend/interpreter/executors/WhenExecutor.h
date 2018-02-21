@@ -1,13 +1,13 @@
 /**
  * <h1>IfExecutor</h1>
  *
- * <p>Execute an IF statement.</p>
+ * <p>Execute a When statement.</p>
  *
  * <p>Copyright (c) 2017 by Ronald Mak</p>
  * <p>For instructional purposes only.  No warranties.</p>
  */
-#ifndef IFEXECUTOR_H_
-#define IFEXECUTOR_H_
+#ifndef WHENEXECUTOR_H_
+#define WHENEXECUTOR_H_
 
 #include "StatementExecutor.h"
 #include "../../../Object.h"
@@ -20,14 +20,14 @@ using namespace wci;
 using namespace wci::backend::interpreter;
 using namespace wci::intermediate;
 
-class IfExecutor : public StatementExecutor
+class WhenExecutor : public StatementExecutor
 {
 public:
     /**
      * Constructor.
      * @param the parent executor.
      */
-    IfExecutor(Executor *parent);
+    WhenExecutor(Executor *parent);
 
     /**
      * Execute a compound statement.
@@ -39,4 +39,4 @@ public:
 
 }}}}  // namespace wci::backend::interpreter::executors
 
-#endif /* IFEXECUTOR_H_ */
+#endif /* WHENEXECUTOR_H_ */
