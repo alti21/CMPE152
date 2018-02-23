@@ -29,9 +29,9 @@ void PascalToken::initialize()
     {
         "AND", "ARRAY", "BEGIN", "CASE", "CONST", "DIV", "DO", "DOWNTO",
         "ELSE", "END", "FILE", "FOR", "FUNCTION", "GOTO", "IF", "IN",
-        "LABEL", "MOD", "NIL", "NOT", "OF", "OR", "PACKED", "PROCEDURE",
+        "LABEL", "MOD", "NIL", "NOT", "OF", "OR", "OTHERWISE", "PACKED", "PROCEDURE",
         "PROGRAM", "RECORD", "REPEAT", "SET", "THEN", "TO", "TYPE",
-        "UNTIL", "VAR", "WHILE", "WITH"
+        "UNTIL", "VAR", "WHEN", "WHILE", "WITH"
     };
 
     vector<PascalTokenType> rw_keys =
@@ -60,6 +60,7 @@ void PascalToken::initialize()
         PascalTokenType::NOT,
         PascalTokenType::OF,
         PascalTokenType::OR,
+		PascalTokenType::OTHERWISE,
         PascalTokenType::PACKED,
         PascalTokenType::PROCEDURE,
 
@@ -73,6 +74,7 @@ void PascalToken::initialize()
 
         PascalTokenType::UNTIL,
         PascalTokenType::VAR,
+		PascalTokenType::WHEN,
         PascalTokenType::WHILE,
         PascalTokenType::WITH
     };
@@ -85,7 +87,7 @@ void PascalToken::initialize()
     vector<string> ss_strings =
     {
         "+", "-", "*", "/", ":=", ".", ",", ";", ":", "'", "=", "<>",
-        "<", "<=", ">=", ">", "(", ")", "[", "]", "{", "}",  "^", ".."
+        "<", "<=", ">=", ">", "(", ")", "[", "]", "{", "}",  "^", "..","=>"
     };
 
     vector<PascalTokenType> ss_keys =
@@ -114,7 +116,8 @@ void PascalToken::initialize()
         PascalTokenType::LEFT_BRACE,
         PascalTokenType::RIGHT_BRACE,
         PascalTokenType::UP_ARROW,
-        PascalTokenType::DOT_DOT
+        PascalTokenType::DOT_DOT,
+		PascalTokenType::RIGHT_ARROW
     };
 
     for (int i = 0; i < ss_strings.size(); i++)
@@ -129,7 +132,7 @@ void PascalToken::initialize()
 
         "LESS_THAN", "LESS_EQUALS", "GREATER_EQUALS", "GREATER_THAN",
         "LEFT_PAREN", "RIGHT_PAREN", "LEFT_BRACKET", "RIGHT_BRACKET",
-        "LEFT_BRACE", "RIGHT_BRACE", "UP_ARROW", "DOT_DOT"
+        "LEFT_BRACE", "RIGHT_BRACE", "UP_ARROW", "DOT_DOT","RIGHT_ARROW"
     };
 
     for (int i = 0; i < ss_names.size(); i++)
