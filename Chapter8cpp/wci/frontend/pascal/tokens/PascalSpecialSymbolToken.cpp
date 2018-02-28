@@ -57,12 +57,12 @@ void PascalSpecialSymbolToken::extract() throw (string)
         // = or =>
         case '=':
         {
-            current_ch = next_char();  // consume ':';
+            current_ch = next_char();  // consume '=';
 
             if (current_ch == '>')
             {
                 text += current_ch;
-                next_char();  // consume '='
+                next_char();  // consume '>'
             }
 
             break;
