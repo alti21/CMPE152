@@ -33,10 +33,24 @@ void PascalSpecialSymbolToken::extract() throw (string)
     {
         // Single-character special symbols.
         case '+':  case '-':  case '*':  case '/':  case ',':
-        case ';':  case '\'': case '(':  case ')':
+        case ';':  case '\'': /*case '=':*/  case '(':  case ')': //EDITED HERE
         case '[':  case ']':  case '{':  case '}':  case '^':
         {
             next_char();  // consume character
+            break;
+        }
+
+        // =>
+        case '=':		// ADDED HERE
+        {
+            current_ch = next_char();  // consume ':';
+
+            if (current_ch == '>')
+            {
+                text += current_ch;
+                next_char();  // consume '='
+            }
+
             break;
         }
 
@@ -46,20 +60,6 @@ void PascalSpecialSymbolToken::extract() throw (string)
             current_ch = next_char();  // consume ':';
 
             if (current_ch == '=')
-            {
-                text += current_ch;
-                next_char();  // consume '='
-            }
-
-            break;
-        }
-
-        // = or =>
-        case '=':
-        {
-            current_ch = next_char();  // consume ':';
-
-            if (current_ch == '>')
             {
                 text += current_ch;
                 next_char();  // consume '='

@@ -60,6 +60,8 @@ void PascalError::initialize()
         PascalErrorCode::MISSING_IDENTIFIER,
         PascalErrorCode::MISSING_LEFT_BRACKET,
         PascalErrorCode::MISSING_OF,
+		PascalErrorCode::MISSING_EQUALS_GREATER, //ADDED HERE
+		PascalErrorCode::MISSING_OTHERWISE, //ADDED HERE
         PascalErrorCode::MISSING_PERIOD,
         PascalErrorCode::MISSING_PROGRAM,
         PascalErrorCode::MISSING_RIGHT_BRACKET,
@@ -125,6 +127,7 @@ void PascalError::initialize()
         "Missing identifier",
         "Missing [",
         "Missing OF",
+		"Missing EQUALS_GREATER",
         "Missing .",
         "Missing PROGRAM",
         "Missing ]",
