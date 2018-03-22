@@ -41,14 +41,6 @@ public:
      */
     static bool is_real(TypeSpec *typespec);
 
-
-    /**
-         * Check if a type specification is complex.
-         * @param typespec the type specification to check.
-         * @return true if real, else false.
-         */
-    static bool is_complex(TypeSpec *typespec);
-
     /**
      * Check if a type specification is integer or real.
      * @param typespec the type specification to check.
